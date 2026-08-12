@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /efharisto.html
+
+Sitemap: https://xn----olboi6aafc1anwd4b8j.com/sitemap.xml
