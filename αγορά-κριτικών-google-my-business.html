@@ -502,6 +502,18 @@
         </div>
     </section>
 
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Δοκίμασαν και έμειναν.</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card"><img src="google-kritiki-pelati-1.webp" alt="αγορά πραγματικών κριτικών google" title="βελτίωση βαθμολογίας google" width="539" height="1025" class="testimonial-img" loading="lazy"></div>
+                <div class="testimonial-card"><img src="google-kritiki-pelati-2.webp" alt="αγορά κριτικών google" title="αγορά αρνητικών κριτικών google" width="539" height="1025" class="testimonial-img" loading="lazy"></div>
+                <div class="testimonial-card"><img src="google-kritiki-pelati-3.webp" alt="ενίσχυση κριτικών google" title="ψεύτικες κριτικές google" width="539" height="1025" class="testimonial-img" loading="lazy"></div>
+                <div class="testimonial-card"><img src="google-kritiki-pelati-4.webp" alt="διαγραφή κριτικών google" title="διαγραφή κριτικών google" width="539" height="1025" class="testimonial-img" loading="lazy"></div>
+                <div class="testimonial-card"><img src="google-kritiki-pelati-5.webp" alt="αγορά κριτικών google" title="αγορά κριτικών google" width="539" height="1025" class="testimonial-img" loading="lazy"></div>
+            </div>
+        </div>
+    </section>
 
     <section class="seo-content">
         <div class="container">
@@ -558,7 +570,7 @@
             const faqItems = document.querySelectorAll('.faq-item'); faqItems.forEach(item => { const question = item.querySelector('.faq-question'); question.addEventListener('click', function() { faqItems.forEach(otherItem => { if (otherItem !== item && otherItem.classList.contains('active')) { otherItem.classList.remove('active'); } }); item.classList.toggle('active'); }); });
             const sections = document.querySelectorAll('section[id]'); const navLinksAll = document.querySelectorAll('.nav-link'); function updateActiveNav() { const scrollPosition = window.scrollY + 100; sections.forEach(section => { const sectionTop = section.offsetTop; const sectionHeight = section.offsetHeight; const sectionId = section.getAttribute('id'); if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) { navLinksAll.forEach(link => { link.classList.remove('active'); if (link.getAttribute('href') === '#' + sectionId) { link.classList.add('active'); } }); } }); } window.addEventListener('scroll', updateActiveNav);
             const header = document.querySelector('.header'); function updateHeader() { if (window.scrollY > 50) { header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)'; } else { header.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.08)'; } } window.addEventListener('scroll', updateHeader);
-            const animateElements = document.querySelectorAll('.stat-card, .step, .pricing-card, .faq-item'); const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }; const observer = new IntersectionObserver(function(entries) { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; } }); }, observerOptions); animateElements.forEach(element => { element.style.opacity = '0'; element.style.transform = 'translateY(30px)'; element.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; observer.observe(element); });
+            const animateElements = document.querySelectorAll('.stat-card, .step, .pricing-card, .testimonial-card, .faq-item'); const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }; const observer = new IntersectionObserver(function(entries) { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; } }); }, observerOptions); animateElements.forEach(element => { element.style.opacity = '0'; element.style.transform = 'translateY(30px)'; element.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; observer.observe(element); });
             const statNumbers = document.querySelectorAll('.stat-number'); let animated = false; function animateCounters() { if (animated) return; statNumbers.forEach(stat => { const staticText = stat.getAttribute('data-static'); if (staticText) { stat.textContent = staticText; return; } const target = parseInt(stat.getAttribute('data-target') || stat.textContent); const suffix = stat.getAttribute('data-suffix') || '%'; if (isNaN(target) || target <= 0) return; let current = 0; const increment = target / 50; const duration = 2000; const stepTime = duration / 50; const counter = setInterval(() => { current += increment; if (current >= target) { stat.textContent = target + suffix; clearInterval(counter); } else { stat.textContent = Math.floor(current) + suffix; } }, stepTime); }); animated = true; } const statsSection = document.querySelector('.stats'); if (statsSection) { const statsObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { animateCounters(); } }); }, { threshold: 0.5 }); statsObserver.observe(statsSection); }
         });
     </script>
