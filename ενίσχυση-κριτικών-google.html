@@ -487,18 +487,6 @@
         </div>
     </section>
 
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title">Δοκίμασαν και έμειναν.</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card"><img src="αγορά-πραγματικών-κριτικών-google.webp" alt="αγορά πραγματικών κριτικών google" title="βελτίωση βαθμολογίας google" width="539" height="1025" class="testimonial-img" loading="lazy"></div>
-                <div class="testimonial-card"><img src="αγορά-κριτικών-google-5-αστέρων.webp" alt="αγορά κριτικών google" title="αγορά αρνητικών κριτικών google" width="539" height="1025" class="testimonial-img" loading="lazy"></div>
-                <div class="testimonial-card"><img src="βελτίωση-βαθμολογίας-google.webp" alt="ενίσχυση κριτικών google" title="ψεύτικες κριτικές google" width="539" height="1025" class="testimonial-img" loading="lazy"></div>
-                <div class="testimonial-card"><img src="ενίσχυση-κριτικών-google.webp" alt="διαγραφή κριτικών google" title="διαγραφή κριτικών google" width="539" height="1025" class="testimonial-img" loading="lazy"></div>
-                <div class="testimonial-card"><img src="αγορά-κριτικών-google-αξιόπιστες.webp" alt="αγορά κριτικών google" title="αγορά κριτικών google" width="539" height="1025" class="testimonial-img" loading="lazy"></div>
-            </div>
-        </div>
-    </section>
 
     <section class="seo-content">
         <div class="container">
@@ -553,7 +541,7 @@
             document.querySelectorAll('a[href^="#"]').forEach(link => { link.addEventListener('click', function(e) { e.preventDefault(); const t = document.querySelector(this.getAttribute('href')); if (t) window.scrollTo({ top: t.offsetTop - document.querySelector('.header').offsetHeight, behavior: 'smooth' }); }); });
             document.querySelectorAll('.faq-item').forEach(item => { item.querySelector('.faq-question').addEventListener('click', function() { document.querySelectorAll('.faq-item').forEach(o => { if (o !== item) o.classList.remove('active'); }); item.classList.toggle('active'); }); });
             const header = document.querySelector('.header'); window.addEventListener('scroll', function() { header.style.boxShadow = window.scrollY > 50 ? '0 4px 20px rgba(0,0,0,0.1)' : '0 4px 15px rgba(0,0,0,0.08)'; });
-            const observer = new IntersectionObserver(function(entries) { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; } }); }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }); document.querySelectorAll('.stat-card, .step, .pricing-card, .testimonial-card, .faq-item').forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(30px)'; el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; observer.observe(el); });
+            const observer = new IntersectionObserver(function(entries) { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; } }); }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }); document.querySelectorAll('.stat-card, .step, .pricing-card, .faq-item').forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(30px)'; el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; observer.observe(el); });
             let animated = false; function animateCounters() { if (animated) return; document.querySelectorAll('.stat-number').forEach(stat => { const s = stat.getAttribute('data-static'); if (s) { stat.textContent = s; return; } const target = parseInt(stat.getAttribute('data-target')); const suffix = stat.getAttribute('data-suffix') || '%'; if (isNaN(target) || target <= 0) return; let c = 0; const inc = target / 50; const counter = setInterval(() => { c += inc; if (c >= target) { stat.textContent = target + suffix; clearInterval(counter); } else stat.textContent = Math.floor(c) + suffix; }, 40); }); animated = true; }
             const ss = document.querySelector('.stats'); if (ss) new IntersectionObserver(e => { e.forEach(en => { if (en.isIntersecting) animateCounters(); }); }, { threshold: 0.5 }).observe(ss);
         });

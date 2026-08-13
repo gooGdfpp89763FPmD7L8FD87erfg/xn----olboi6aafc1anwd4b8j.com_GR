@@ -478,18 +478,6 @@
         </div>
     </section>
 
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title">Δοκίμασαν και έμειναν.</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card"><img src="αγορά-πραγματικών-κριτικών-google.webp" alt="αγορά πραγματικών κριτικών google γιατρός" title="βελτίωση βαθμολογίας google γιατρός" width="539" height="1025" class="testimonial-img" loading="lazy"></div>
-                <div class="testimonial-card"><img src="αγορά-κριτικών-google-5-αστέρων.webp" alt="αγορά κριτικών google γιατρός" title="αγορά αρνητικών κριτικών google γιατρός" width="539" height="1025" class="testimonial-img" loading="lazy"></div>
-                <div class="testimonial-card"><img src="βελτίωση-βαθμολογίας-google.webp" alt="ενίσχυση κριτικών google γιατρός" title="ψεύτικες κριτικές google γιατρός" width="539" height="1025" class="testimonial-img" loading="lazy"></div>
-                <div class="testimonial-card"><img src="ενίσχυση-κριτικών-google.webp" alt="διαγραφή κριτικών google γιατρός" title="διαγραφή κριτικών google γιατρός" width="539" height="1025" class="testimonial-img" loading="lazy"></div>
-                <div class="testimonial-card"><img src="αγορά-κριτικών-google-αξιόπιστες.webp" alt="αγορά κριτικών google γιατρός" title="αγορά κριτικών google γιατρός" width="539" height="1025" class="testimonial-img" loading="lazy"></div>
-            </div>
-        </div>
-    </section>
 
     <section class="seo-content">
         <div class="container">
@@ -544,7 +532,7 @@
             document.querySelectorAll('.faq-item').forEach(item => { item.querySelector('.faq-question').addEventListener('click', function() { document.querySelectorAll('.faq-item').forEach(o => { if (o !== item && o.classList.contains('active')) o.classList.remove('active'); }); item.classList.toggle('active'); }); });
             window.addEventListener('scroll', function() { document.querySelector('.header').style.boxShadow = window.scrollY > 50 ? '0 4px 20px rgba(0,0,0,0.1)' : '0 4px 15px rgba(0,0,0,0.08)'; });
             const observer = new IntersectionObserver(function(entries) { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; } }); }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-            document.querySelectorAll('.stat-card, .step, .pricing-card, .testimonial-card, .faq-item').forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(30px)'; el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; observer.observe(el); });
+            document.querySelectorAll('.stat-card, .step, .pricing-card, .faq-item').forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(30px)'; el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; observer.observe(el); });
             let animated = false; const ss = document.querySelector('.stats');
             if (ss) { new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting && !animated) { document.querySelectorAll('.stat-number').forEach(stat => { const st = stat.getAttribute('data-static'); if (st) { stat.textContent = st; return; } const target = parseInt(stat.getAttribute('data-target')||stat.textContent); const suffix = stat.getAttribute('data-suffix')||'%'; if (isNaN(target)||target<=0) return; let c = 0; const inc = target/50; const counter = setInterval(() => { c += inc; if (c >= target) { stat.textContent = target+suffix; clearInterval(counter); } else stat.textContent = Math.floor(c)+suffix; }, 40); }); animated = true; } }); }, { threshold: 0.5 }).observe(ss); }
         });

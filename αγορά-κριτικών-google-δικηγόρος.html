@@ -424,13 +424,6 @@
         </div>
     </div></section>
 
-    <section class="testimonials"><div class="container"><h2 class="section-title">Δοκίμασαν και έμειναν.</h2><div class="testimonials-grid">
-        <div class="testimonial-card"><img src="αγορά-πραγματικών-κριτικών-google.webp" alt="αγορά πραγματικών κριτικών google δικηγόρος" title="βελτίωση βαθμολογίας google δικηγόρος" width="539" height="1025" class="testimonial-img" loading="lazy"></div>
-        <div class="testimonial-card"><img src="αγορά-κριτικών-google-5-αστέρων.webp" alt="αγορά κριτικών google δικηγόρος" title="αγορά αρνητικών κριτικών google δικηγόρος" width="539" height="1025" class="testimonial-img" loading="lazy"></div>
-        <div class="testimonial-card"><img src="βελτίωση-βαθμολογίας-google.webp" alt="ενίσχυση κριτικών google δικηγόρος" title="ψεύτικες κριτικές google δικηγόρος" width="539" height="1025" class="testimonial-img" loading="lazy"></div>
-        <div class="testimonial-card"><img src="ενίσχυση-κριτικών-google.webp" alt="διαγραφή κριτικών google δικηγόρος" title="διαγραφή κριτικών google δικηγόρος" width="539" height="1025" class="testimonial-img" loading="lazy"></div>
-        <div class="testimonial-card"><img src="αγορά-κριτικών-google-αξιόπιστες.webp" alt="αγορά κριτικών google δικηγόρος" title="αγορά κριτικών google δικηγόρος" width="539" height="1025" class="testimonial-img" loading="lazy"></div>
-    </div></div></section>
 
     <section class="seo-content"><div class="container"><h2 class="section-title">Όλα όσα πρέπει να ξέρετε για τις κριτικές Google δικηγόρος</h2><div class="seo-text">
         <h3>Η φήμη του δικηγορικού κόσμου μετακόμισε στη Google</h3>
@@ -470,7 +463,7 @@
             document.querySelectorAll('.faq-item').forEach(item => item.querySelector('.faq-question').addEventListener('click', function() { document.querySelectorAll('.faq-item').forEach(o => { if (o!==item&&o.classList.contains('active')) o.classList.remove('active'); }); item.classList.toggle('active'); }));
             window.addEventListener('scroll', function() { document.querySelector('.header').style.boxShadow = window.scrollY>50 ? '0 4px 20px rgba(0,0,0,0.1)' : '0 4px 15px rgba(0,0,0,0.08)'; });
             const obs = new IntersectionObserver(function(entries) { entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; } }); }, { threshold:0.1, rootMargin:'0px 0px -50px 0px' });
-            document.querySelectorAll('.stat-card,.step,.pricing-card,.testimonial-card,.faq-item').forEach(el => { el.style.opacity='0'; el.style.transform='translateY(30px)'; el.style.transition='opacity 0.6s ease, transform 0.6s ease'; obs.observe(el); });
+            document.querySelectorAll('.stat-card,.step,.pricing-card,.faq-item').forEach(el => { el.style.opacity='0'; el.style.transform='translateY(30px)'; el.style.transition='opacity 0.6s ease, transform 0.6s ease'; obs.observe(el); });
             let an=false; const ss=document.querySelector('.stats');
             if (ss) new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting&&!an) { document.querySelectorAll('.stat-number').forEach(s => { const st=s.getAttribute('data-static'); if (st){s.textContent=st;return;} const tg=parseInt(s.getAttribute('data-target')||s.textContent),sf=s.getAttribute('data-suffix')||'%'; if (isNaN(tg)||tg<=0)return; let c=0; const inc=tg/50,ct=setInterval(()=>{c+=inc;if(c>=tg){s.textContent=tg+sf;clearInterval(ct);}else s.textContent=Math.floor(c)+sf;},40); }); an=true; } }); }, { threshold:0.5 }).observe(ss);
         });
